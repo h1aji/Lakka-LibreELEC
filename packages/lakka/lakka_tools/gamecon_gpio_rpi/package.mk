@@ -14,7 +14,8 @@ pre_make_target() {
 }
 
 make_target() {
-  make KDIR=$(kernel_path)
+  kernel_make KDIR=$(kernel_path) \
+        -C $(kernel_path) M=${PKG_BUILD} modules
 }
 
 makeinstall_target() {
